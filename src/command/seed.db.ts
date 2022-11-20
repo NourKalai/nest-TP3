@@ -45,12 +45,11 @@ async function bootstrap() {
         cv.path = randFilePath();
         cv.name = randLastName();
         const randId = Math.floor(Math.random() * 48) + 1;
-        const user = await userService.findOne(randId);
         cv.creator.id = Number(userService.findOne(randId));
         const skills = [];
         for (let j = 0; j < 3; j++) {
             const randId = Math.floor(Math.random() * 48) + 1;
-            const skill = await skillService.findOne(randId);
+            const skill = skillService.findOne(randId);
             if (!skills.includes(skill)) {
                 skills.push(skill);
             }

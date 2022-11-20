@@ -32,7 +32,6 @@ export class TodoService{
             "todo.status = :status", {status: status}
           )
          
-          console.log(stat.getSql());
           return await stat.getRawMany();
         }
         
